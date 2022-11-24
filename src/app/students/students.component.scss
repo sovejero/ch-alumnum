@@ -1,0 +1,25 @@
+.student-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  padding: 10px 10px;
+}
+
+.card {
+  display: flex;
+  flex-wrap: nowrap;
+  border: 1px solid #ccc;
+  padding: 10px;
+  color: #333;
+
+  .card-image {
+    max-width: 50px;
+    max-height: 50px;
+    padding-right: 5px;
+  }
+
+  .details {
+    display: flex;
+    flex-flow: column;
+  }
+}
