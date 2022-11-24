@@ -1,0 +1,24 @@
+.main-grid-layout {
+    display: grid;
+    grid-template-columns: 0.2fr 2fr;
+    grid-template-rows: 1fr minmax(95vh, auto);
+    grid-template-areas:
+        "toolbar toolbar toolbar toolbar"
+        "navbar students students students";
+    gap: 0px;
+}
+
+.toolbar {
+    grid-area: toolbar;
+    background-color: #002d5b;
+}
+
+.navbar {
+    grid-area: navbar;
+    background-color: #DCEDFF;
+}
+
+.students {
+    grid-area: students;
+    background-color: white;
+}
