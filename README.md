@@ -1,4 +1,7 @@
-# ChAlumnum
+## Screenshot Clase 2
+![ScreenshotClase2](https://user-images.githubusercontent.com/33473788/203694298-c7a21e54-adf3-445e-8f3a-1e6653916e8f.png)
+
+## ChAlumnum
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.9.
 
