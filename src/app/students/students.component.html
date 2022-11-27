@@ -1,7 +1,7 @@
 <h2>Students</h2>
 <ul class="student-cards">
   <li *ngFor="let student of students">
-    <div class="card">
+    <div [ngClass]="student === selectedStudent ? 'card selected' : 'card'" (click)="onSelect(student)">
       <img src={{stockAvatarUrl}} class="card-image">
       <div class="details">
         <span class="id">ID: {{student.id}}</span>

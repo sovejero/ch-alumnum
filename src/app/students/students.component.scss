@@ -11,6 +11,7 @@
   border: 1px solid #ccc;
   padding: 10px;
   color: #333;
+  cursor: pointer;
 
   .card-image {
     max-width: 50px;
@@ -21,5 +22,20 @@
   .details {
     display: flex;
     flex-flow: column;
+  }
+}
+
+.selected {
+  background-color: #505050;
+  color: white;
+
+  &:hover {
+    background-color: #004a94 ;
+    color: white;
+  }
+
+  &:active {
+    background-color: #505050;
+    color: white;
   }
 }
