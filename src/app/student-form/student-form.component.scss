@@ -1,0 +1,40 @@
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+  padding-left: 10px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+input,
+select,
+textarea,
+button {
+  padding: 5px;
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px hsl(213, 90%, 70%);
+  }
+}
+
+.ng-valid[required], .ng-valid.required  {
+  border-left: 5px solid #42A948; /* green */
+}
+
+.ng-invalid:not(form)  {
+  border-color: hsl(0, 90%, 70%);
+}
+
+.alert-invalid {
+  font-size: 12px;
+  line-height: 1.5;
+  color: red;
+  white-space: pre-line;
+}
