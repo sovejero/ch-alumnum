@@ -1,0 +1,11 @@
+export const COURSES = [
+  { id: 1, name: 'Angular' },
+  { id: 2, name: 'React' },
+  { id: 3, name: 'Vue' },
+  { id: 4, name: 'Assembler I' },
+  { id: 5, name: 'Plutus' },
+  { id: 6, name: 'Express' },
+  { id: 7, name: 'Monads' },
+  { id: 8, name: 'Django' },
+  { id: 9, name: 'Introduction to R' }
+];
