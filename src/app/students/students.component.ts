@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { STUDENTS } from '../mock-students';
-import { Student } from '../student';
+import STUDENTS from '../mock-students.json';
+import { Student } from '../models/student';
+import { MatDialog } from '@angular/material/dialog';
+import { StudentFormComponent } from '../student-form/student-form.component';
 
 @Component({
   selector: 'app-students',
@@ -9,16 +11,39 @@ import { Student } from '../student';
 })
 export class StudentsComponent implements OnInit {
 
-  students = STUDENTS;
-  stockAvatarUrl = 'assets/avatar.png';
-  selectedStudent?: Student;
+  students: Student[] = STUDENTS.studentArray;
+  columnsToDisplay = ['id', 'name','course', 'edit', 'delete'];
 
-  constructor() { }
+  constructor( private readonly dialogService: MatDialog) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
   
-  onSelect(student: Student): void {
-    this.selectedStudent = student;
+  addStudent(){
+    const addStudentForm = this.dialogService.open(StudentFormComponent);
+
+    addStudentForm.afterClosed().subscribe( result => {
+      if(result) {
+      const lastId = this.students[this.students.length -1]?.id;
+      const newStudent = { id: lastId+1, name: result.name, course: result.course }
+      this.students = [...this.students, newStudent ];
+      console.log(this.students);
+      }
+    })
   }
+
+  removeStudent(studentId: Number){
+    this.students = this.students.filter(student => student.id !== studentId)
+  }
+
+  editStudent(student: Student){
+    const editStudentForm = this.dialogService.open(StudentFormComponent, {data: student});
+
+    editStudentForm.afterClosed().subscribe( result => {
+      if(result) {
+      const editedStudent = { id: result.id, name: result.name, course: result.course }
+      this.students = [...this.students.filter(student => student.id !== result.id), editedStudent];
+      }
+    })
+  }
+
 }

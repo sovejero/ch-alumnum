@@ -1,13 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from "@angular/forms";
-import { COURSES } from "../mock-courses";
-
-export function validatePassword(): ValidatorFn {
-  return (control: AbstractControl): ValidationErrors | null => {
-    const validpassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/.test(control.value);
-    return !validpassword ? {validPassword: false} : null;
-  };
-};
+import { Component, Inject, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from "@angular/forms";
+import COURSES from "../mock-courses.json";
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog'
+import { Student } from '../models/student';
 
 @Component({
   selector: 'app-student-form',
@@ -15,36 +10,27 @@ export function validatePassword(): ValidatorFn {
   styleUrls: ['./student-form.component.scss']
 })
 export class StudentFormComponent implements OnInit {
-
-  public inputFields = [
-    { fieldName: 'id', errorMessage: ''} ,
-    { fieldName: 'name', errorMessage: 'Required, please complete field' },
-    { fieldName: 'password', errorMessage:
-      `Minimum 8 characters length.
-      At least 1 digit.
-      At least 1 lower case letter.
-      At least 1 upper case letter.`
-    },
-    { fieldName: 'email', errorMessage: 'Complete with email format'},
-  ]
   
-  studentModel = new FormGroup({
-    id: new FormControl(''),
-    name: new FormControl('', [Validators.required, Validators.maxLength(250)]),
-    course: new FormControl('', Validators.required),
-    password: new FormControl('', [Validators.required, Validators.minLength(8), validatePassword()]),
-    email: new FormControl('', Validators.email),
+  courses = COURSES.coursesArray;
+  
+  studentForm = new FormGroup({
+    id: new FormControl(this.data?.id),
+    name: new FormControl(this.data?.name, [Validators.required, Validators.maxLength(250)]),
+    course: new FormControl(this.data?.course, Validators.required),
   });
   
-  courses = COURSES;
-
-  constructor() {
+  constructor(
+    public addStudentForm: MatDialogRef<StudentFormComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: Student | null,
+    ) {
   }
 
   ngOnInit(): void {
-    this.studentModel.get('course')?.valueChanges.subscribe( (value) => { console.log(value)});
+    this.studentForm.get('course')?.valueChanges.subscribe( (value) => { console.log(value)});
+  
   }
   onSubmit(){
-    console.log(this.studentModel.value)
+    console.log(this.studentForm.value)
+    this.addStudentForm.close(this.studentForm.value);
   }
 }
