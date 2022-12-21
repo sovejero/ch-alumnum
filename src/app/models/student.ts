@@ -1,8 +1,5 @@
-export class Student {
-  
-  constructor(
-    public id: number,
-    public name: string,
-    public course: string
-  ) {}
+export interface Student {
+  id: number;
+  name: string;
+  course: string;
 }
