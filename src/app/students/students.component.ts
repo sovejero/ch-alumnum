@@ -41,7 +41,7 @@ export class StudentsComponent implements OnInit {
     editStudentForm.afterClosed().subscribe( result => {
       if(result) {
       const editedStudent = { id: result.id, name: result.name, course: result.course }
-      this.students = [...this.students.filter(student => student.id !== result.id), editedStudent];
+      this.students = this.students.map( student => student.id === result.id ? editedStudent : student ); 
       }
     })
   }
