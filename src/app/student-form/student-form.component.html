@@ -1,24 +1,16 @@
-<p>student-form works!</p>
-<form [formGroup]="studentModel" (ngSubmit)="onSubmit()" class="form-group">
+<form [formGroup]="studentForm" (ngSubmit)="onSubmit()" class="form-group">
 
-  <div *ngFor="let field of inputFields" class="form-field">
-    <label for="{{field.fieldName}}">{{field.fieldName | titlecase}}:</label>
-    <input type="text" id="{{field.fieldName}}" formControlName="{{field.fieldName}}" class="form-control">
-    <div *ngIf="studentModel.get(field.fieldName)?.invalid && (studentModel.get(field.fieldName)?.dirty || studentModel.get(field.fieldName)?.touched)" class="alert-invalid">
-      {{field.errorMessage}}
-    </div>
-  </div>
+  <mat-form-field appearance="fill">
+    <mat-label>Name</mat-label>
+    <input matInput formControlName="name">
+  </mat-form-field>
 
-  <div class="form-field">
-    <label for="course">Course:</label>
-    <select  id="course" formControlName="course" class="form-control">
-      <option value="">--Please choose an option--</option>
-      <option *ngFor="let course of courses" value={{course.name}}>{{course.name | titlecase}}</option>
-    </select>
-  </div>
-  <br/>
-  <button type="submit" [disabled]="!studentModel.valid" >Add Student</button>
-  <div *ngIf="studentModel.status">
-    <p>Please complete required fields to enable the button</p>
-  </div>
+  <mat-form-field appearance="fill">
+    <mat-label>Select Course</mat-label>
+    <mat-select formControlName="course">
+      <mat-option *ngFor="let course of courses" value={{course.name}}>{{course.name | titlecase}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit" [disabled]="!studentForm.valid" >Save</button>
 </form>
