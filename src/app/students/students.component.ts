@@ -1,22 +1,29 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import STUDENTS from '../mock-students.json';
 import { Student } from '../models/student';
 import { MatDialog } from '@angular/material/dialog';
 import { StudentFormComponent } from '../student-form/student-form.component';
+import { StudentsService } from '../services/students.service';
 
 @Component({
   selector: 'app-students',
   templateUrl: './students.component.html',
   styleUrls: ['./students.component.scss']
 })
-export class StudentsComponent implements OnInit {
+export class StudentsComponent implements OnInit, OnDestroy {
 
-  students: Student[] = STUDENTS.studentArray;
+  public students: Student[] = STUDENTS.studentArray;
   columnsToDisplay = ['id', 'name','course', 'edit', 'delete'];
 
-  constructor( private readonly dialogService: MatDialog) { }
+  constructor( private readonly dialogService: MatDialog, private studentsService: StudentsService) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    //
+  }
+
+  ngOnDestroy(): void {
+    //
+  }
   
   addStudent(){
     const addStudentForm = this.dialogService.open(StudentFormComponent);
@@ -45,5 +52,4 @@ export class StudentsComponent implements OnInit {
       }
     })
   }
-
 }
