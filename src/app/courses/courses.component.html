@@ -1,4 +1,12 @@
-<p>courses works!</p>
-<div *ngFor="let course of coursesObservable | async">
-  {{course.name}}
+<button mat-raised-button color="basic">Filter 1</button>
+<button mat-raised-button color="basic">Filter 2</button>
+
+<div class="card-container">
+  <mat-card *ngFor="let course of coursesObservable | async">
+    <mat-card-content>
+      <p *ngFor="let item of course | keyvalue">
+        {{item.key}}: {{item.value}}
+      </p>
+    </mat-card-content>
+  </mat-card>
 </div>
