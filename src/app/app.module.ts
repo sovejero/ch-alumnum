@@ -11,6 +11,8 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { StudentsComponent } from './students/students.component';
 import { StudentFormComponent } from './student-form/student-form.component';
+import { CoursesComponent } from './courses/courses.component';
+import { HttpClientModule } from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -18,7 +20,8 @@ import { StudentFormComponent } from './student-form/student-form.component';
     ToolbarComponent,
     NavbarComponent,
     StudentsComponent,
-    StudentFormComponent
+    StudentFormComponent,
+    CoursesComponent
   ],
   imports: [
     BrowserModule,
@@ -26,6 +29,7 @@ import { StudentFormComponent } from './student-form/student-form.component';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MaterialModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
