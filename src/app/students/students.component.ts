@@ -3,6 +3,7 @@ import { Student } from '../models/student';
 import { MatDialog } from '@angular/material/dialog';
 import { StudentFormComponent } from '../student-form/student-form.component';
 import { StudentsService } from '../services/students.service';
+import { Observable, Subscription, SubscriptionLike } from 'rxjs';
 
 @Component({
   selector: 'app-students',
@@ -11,20 +12,24 @@ import { StudentsService } from '../services/students.service';
 })
 export class StudentsComponent implements OnInit, OnDestroy {
 
-  public students: Student[] = [];
   columnsToDisplay = ['id', 'name','course', 'edit', 'delete'];
-
-  constructor( private readonly dialogService: MatDialog, private studentsService: StudentsService) { }
+  
+  public students: Student[] = [];
+  
+  constructor(
+    private readonly dialogService: MatDialog,
+    private studentsService: StudentsService,
+    ) { }
 
   ngOnInit(): void {
-    //this.students = this.studentsService.fetchStudents();
-    this.studentsService.fetchStudents().subscribe(
+    this.students = this.studentsService.fetchStudents();
+    this.studentsService.studentsChanged.subscribe(
       values => this.students = values
     )
   }
 
   ngOnDestroy(): void {
-    //
+    this.studentsService.studentsChanged.unsubscribe();
   }
   
   onAddStudent(){
@@ -32,17 +37,13 @@ export class StudentsComponent implements OnInit, OnDestroy {
 
     addStudentForm.afterClosed().subscribe( result => {
       if(result) {
-        this.studentsService.addStudent(result).subscribe( value =>
-          this.students = value
-        )
+        this.studentsService.addStudent(result)
       }
     })
   }
 
   onRemoveStudent(studentId: Number){
-    this.studentsService.removeStudent(studentId).subscribe( values =>
-      this.students = values
-      )
+    this.studentsService.removeStudent(studentId)
   }
 
   onEditStudent(student: Student){
@@ -50,9 +51,7 @@ export class StudentsComponent implements OnInit, OnDestroy {
 
     editStudentForm.afterClosed().subscribe( result => {
       if(result) {
-        this.studentsService.editStudent(result).subscribe( value =>
-          this.students = value
-        )
+        this.studentsService.editStudent(result)
       }
     })
   }
