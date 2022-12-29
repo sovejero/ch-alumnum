@@ -29,6 +29,7 @@ const routes: Routes = [
     StudentsComponent,
     StudentFormComponent,
     CoursesComponent
+    StudentFormComponent
   ],
   imports: [
     BrowserModule,
