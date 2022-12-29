@@ -15,7 +15,8 @@ export class StudentsComponent implements OnInit, OnDestroy {
   columnsToDisplay = ['id', 'name','course', 'edit', 'delete'];
   
   public students: Student[] = [];
-  
+  private studentSubscription!: Subscription;
+
   constructor(
     private readonly dialogService: MatDialog,
     private studentsService: StudentsService,
@@ -23,13 +24,13 @@ export class StudentsComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.students = this.studentsService.fetchStudents();
-    this.studentsService.studentsChanged.subscribe(
+    this.studentSubscription = this.studentsService.studentsChanged.subscribe(
       values => this.students = values
     )
   }
 
   ngOnDestroy(): void {
-    this.studentsService.studentsChanged.unsubscribe();
+    if (!!this.studentSubscription) this.studentSubscription.unsubscribe();
   }
   
   onAddStudent(){
