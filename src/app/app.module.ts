@@ -28,7 +28,7 @@ const routes: Routes = [
     NavbarComponent,
     StudentsComponent,
     StudentFormComponent,
-    CoursesComponent
+    CoursesComponent,
     StudentFormComponent
   ],
   imports: [
