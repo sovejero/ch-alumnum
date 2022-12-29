@@ -13,6 +13,13 @@ import { StudentsComponent } from './students/students.component';
 import { StudentFormComponent } from './student-form/student-form.component';
 import { CoursesComponent } from './courses/courses.component';
 import { HttpClientModule } from '@angular/common/http'
+import { Routes, RouterModule } from '@angular/router';
+
+const routes: Routes = [
+  { path: 'students', component: StudentsComponent },
+  { path: 'courses', component: CoursesComponent },
+  { path: '',   redirectTo: '/students', pathMatch: 'full' }
+];
 
 @NgModule({
   declarations: [
@@ -29,7 +36,8 @@ import { HttpClientModule } from '@angular/common/http'
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]

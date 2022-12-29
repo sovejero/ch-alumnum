@@ -1,15 +1,24 @@
-<p>Navigation</p>
-<ul class="navbar-list">
-  <li>
-    Users
-  </li>
-  <li>
-    Students
-  </li>
-  <li>
-    Course
-  </li>
-  <li>
-    Enrollments
-  </li>
-</ul>
+<mat-sidenav-container>
+  <mat-sidenav class="sidenav" mode="side" opened>
+    <p>Navigation</p>
+    <ul class="navbar-list">
+      <li>
+        Users
+      </li>
+      <li>
+        <a routerLink="/students" routerLinkActive="active" ariaCurrentWhenActive="page">Students</a>
+      </li>
+      <li>
+        <a routerLink="/courses" routerLinkActive="active" ariaCurrentWhenActive="page">Courses</a>
+      </li>
+      <li>
+        Enrollments
+      </li>
+    </ul>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
