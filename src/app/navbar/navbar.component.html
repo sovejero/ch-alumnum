@@ -1,6 +1,7 @@
+<app-toolbar (toggled)="toggleSidenav()"></app-toolbar>
+
 <mat-sidenav-container class="sidenav-container">
-  <mat-sidenav class="sidenav" mode="side" opened>
-    <p>Navigation</p>
+  <mat-sidenav class="sidenav" mode="side" [(opened)]="opened">
     <ul class="navbar-list">
       <li>
         Users
@@ -21,4 +22,3 @@
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
-
