@@ -12,12 +12,16 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { StudentsComponent } from './students/students.component';
 import { StudentFormComponent } from './student-form/student-form.component';
 import { CoursesComponent } from './courses/courses.component';
+import { UsersComponent } from './users/users.component';
+import { EnrollmentsComponent } from './enrollments/enrollments.component';
 import { HttpClientModule } from '@angular/common/http'
 import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   { path: 'students', component: StudentsComponent },
   { path: 'courses', component: CoursesComponent },
+  { path: 'users', component: UsersComponent },
+  { path: 'enrollments', component: EnrollmentsComponent },
   { path: '',   redirectTo: '/students', pathMatch: 'full' }
 ];
 
