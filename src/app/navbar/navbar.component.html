@@ -2,20 +2,12 @@
 
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav class="sidenav" mode="side" [(opened)]="opened">
-    <ul class="navbar-list">
-      <li>
-        Users
-      </li>
-      <li>
-        <a routerLink="/students" routerLinkActive="active" ariaCurrentWhenActive="page">Students</a>
-      </li>
-      <li>
-        <a routerLink="/courses" routerLinkActive="active" ariaCurrentWhenActive="page">Courses</a>
-      </li>
-      <li>
-        Enrollments
-      </li>
-    </ul>
+    <mat-nav-list>
+      <a mat-list-item routerLink="/users" routerLinkActive="active" ariaCurrentWhenActive="page">Users</a>
+      <a mat-list-item routerLink="/students" routerLinkActive="active" ariaCurrentWhenActive="page">Students</a>
+      <a mat-list-item routerLink="/courses" routerLinkActive="active" ariaCurrentWhenActive="page">courses</a>
+      <a mat-list-item routerLink="/enrollments" routerLinkActive="active" ariaCurrentWhenActive="page">Enrollments</a>
+    </mat-nav-list>
   </mat-sidenav>
 
   <mat-sidenav-content>
