@@ -11,6 +11,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatCardModule} from '@angular/material/card';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
   declarations: [],
@@ -28,6 +29,7 @@ import { MatCardModule} from '@angular/material/card';
     MatToolbarModule,
     MatSidenavModule,
     MatCardModule,
+    MatListModule
   ]
 })
 export class MaterialModule { }
