@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog'
-import { Course } from '../models/course';
+import { Course } from '../../models/course';
 
 @Component({
   selector: 'app-course-form',

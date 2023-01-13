@@ -16,7 +16,18 @@ import { MatListModule } from '@angular/material/list';
 @NgModule({
   declarations: [],
   imports: [
-    CommonModule
+    CommonModule,
+    MatTableModule,
+    MatButtonModule,
+    MatIconModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatDialogModule,
+    MatSelectModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatCardModule,
+    MatListModule
   ],
   exports: [
     MatTableModule,
