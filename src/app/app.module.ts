@@ -16,6 +16,7 @@ import { UsersComponent } from './users/users.component';
 import { EnrollmentsComponent } from './enrollments/enrollments.component';
 import { HttpClientModule } from '@angular/common/http'
 import { Routes, RouterModule } from '@angular/router';
+import { CourseFormComponent } from './course-form/course-form.component';
 
 const routes: Routes = [
   { path: 'students', component: StudentsComponent },
@@ -33,7 +34,8 @@ const routes: Routes = [
     StudentsComponent,
     StudentFormComponent,
     CoursesComponent,
-    StudentFormComponent
+    StudentFormComponent,
+    CourseFormComponent
   ],
   imports: [
     BrowserModule,
