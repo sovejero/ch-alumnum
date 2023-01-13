@@ -1,0 +1,13 @@
+{ "enrollmentArray":
+  [ 
+  { "id": 1, "idStudent": 14, "idCourse": 1, "dateEnrollment": "12-01-2023", "idUser": 2},
+  { "id": 2, "idStudent": 4, "idCourse": 2, "dateEnrollment": "14-01-2023", "idUser": 2},
+  { "id": 3, "idStudent": 14, "idCourse": 1, "dateEnrollment": "11-02-2021", "idUser": 2},
+  { "id": 4, "idStudent": 1, "idCourse": 3, "dateEnrollment": "11-01-2020", "idUser": 2},
+  { "id": 5, "idStudent": 24, "idCourse": 4, "dateEnrollment": "15-02-2022", "idUser": 2},
+  { "id": 6, "idStudent": 14, "idCourse": 5, "dateEnrollment": "11-01-2022", "idUser": 2},
+  { "id": 7, "idStudent": 34, "idCourse": 6, "dateEnrollment": "23-10-2021", "idUser": 2},
+  { "id": 8, "idStudent": 18, "idCourse": 7, "dateEnrollment": "12-01-2023", "idUser": 2},
+  { "id": 9, "idStudent": 2, "idCourse": 1, "dateEnrollment": "11-01-2023", "idUser": 2}
+  ]
+}
