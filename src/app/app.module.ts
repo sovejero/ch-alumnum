@@ -18,6 +18,7 @@ import { HttpClientModule } from '@angular/common/http'
 import { Routes, RouterModule } from '@angular/router';
 import { StudentsModule } from './students/students.module';
 import { CoursesModule } from './courses/courses.module';
+import { EnrollmentsModule } from './enrollments/enrollments.module';
 
 const routes: Routes = [
   { path: 'students', component: StudentsComponent },
@@ -42,6 +43,7 @@ const routes: Routes = [
     HttpClientModule,
     CoursesModule,
     StudentsModule,
+    EnrollmentsModule,
     RouterModule.forRoot(routes)
   ],
   providers: [],
