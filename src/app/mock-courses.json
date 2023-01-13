@@ -1,12 +1,95 @@
-{ "coursesArray" : [
-  { "id": 1, "name": "Angular" },
-  { "id": 2, "name": "React" },
-  { "id": 3, "name": "Vue" },
-  { "id": 4, "name": "Assembler I" },
-  { "id": 5, "name": "Plutus" },
-  { "id": 6, "name": "Express" },
-  { "id": 7, "name": "Monads" },
-  { "id": 8, "name": "Django" },
-  { "id": 9, "name": "Introduction to R" }
-  ]
+{ "coursesArray":
+[
+  {
+    "name": "Angular",
+    "hours": 98123,
+    "lessons": 18095,
+    "professor": "Miss Devin Schroeder",
+    "id": 1
+  },
+  {
+    "name": "React",
+    "hours": 53057,
+    "lessons": 74891,
+    "professor": "Julio Weissnat",
+    "id": 2
+  },
+  {
+    "name": "Vue",
+    "hours": 30605,
+    "lessons": 27,
+    "professor": "Hugh Funk II",
+    "id": 3
+  },
+  {
+    "name": "Assembler I",
+    "hours": 82366,
+    "lessons": 25886,
+    "professor": "Pete Kulas",
+    "id": 4
+  },
+  {
+    "name": "Express",
+    "hours": 10200,
+    "lessons": 22245,
+    "professor": "Damon Dickens",
+    "id": 5
+  },
+  {
+    "name": "Monads",
+    "hours": 92484,
+    "lessons": 3117,
+    "professor": "Cary Corkery",
+    "id": 6
+  },
+  {
+    "name": "Scale",
+    "hours": 60403,
+    "lessons": 83432,
+    "professor": "Mrs. Valerie Jaskolski",
+    "id": 7
+  },
+  {
+    "name": "Python",
+    "hours": 73395,
+    "lessons": 94996,
+    "professor": "Garry Rolfson DDS",
+    "id": 8
+  },
+  {
+    "name": "Pandas",
+    "hours": 90928,
+    "lessons": 85780,
+    "professor": "James Anderson",
+    "id": 9
+  },
+  {
+    "name": "Clojure",
+    "hours": 55300,
+    "lessons": 92920,
+    "professor": "Nathan Keebler III",
+    "id": 10
+  },
+  {
+    "name": "Clean Code",
+    "hours": 16434,
+    "lessons": 15694,
+    "professor": "Anita Pacocha",
+    "id": 11
+  },
+  {
+    "name": "C",
+    "hours": 16562,
+    "lessons": 3602,
+    "professor": "Michele Beahan",
+    "id": 12
+  },
+  {
+    "name": "Introduction to R",
+    "hours": 25925,
+    "lessons": 42519,
+    "professor": "Kelly McClure",
+    "id": 13
+  }
+]
 }

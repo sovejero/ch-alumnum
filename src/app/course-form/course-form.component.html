@@ -1,0 +1,24 @@
+<form [formGroup]="courseForm" (ngSubmit)="onSubmit()" class="form-group">
+
+  <mat-form-field appearance="fill">
+    <mat-label>Name</mat-label>
+    <input matInput formControlName="name">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Hours</mat-label>
+    <input type="number" matInput formControlName="hours">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Lessons</mat-label>
+    <input type="number" matInput formControlName="lessons">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Professor</mat-label>
+    <input matInput formControlName="professor">
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit" [disabled]="!courseForm.valid" >Save</button>
+</form>
