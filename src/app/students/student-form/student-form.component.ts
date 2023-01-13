@@ -1,8 +1,8 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from "@angular/forms";
-import COURSES from "../mock-courses.json";
+import COURSES from "../../mock-courses.json";
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog'
-import { Student } from '../models/student';
+import { Student } from '../../models/student';
 
 @Component({
   selector: 'app-student-form',

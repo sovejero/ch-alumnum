@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Student } from '../models/student';
 import { MatDialog } from '@angular/material/dialog';
-import { StudentFormComponent } from '../student-form/student-form.component';
+import { StudentFormComponent } from './student-form/student-form.component';
 import { StudentsService } from '../services/students.service';
 import { Observable, Subscription, SubscriptionLike } from 'rxjs';
 
