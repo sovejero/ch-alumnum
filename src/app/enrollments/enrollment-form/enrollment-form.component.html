@@ -1,0 +1,24 @@
+<form [formGroup]="enrollForm" (ngSubmit)="onSubmit()" class="form-group">
+
+  <mat-form-field appearance="fill">
+    <mat-label>ID Student</mat-label>
+    <input type="number" matInput formControlName="idStudent">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>ID Course</mat-label>
+    <input type="number" matInput formControlName="idCourse">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Date Enrollment</mat-label>
+    <input matInput formControlName="dateEnrollment">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>ID User</mat-label>
+    <input type="number" matInput formControlName="idUser">
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit" [disabled]="!enrollForm.valid" >Save</button>
+</form>
