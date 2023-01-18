@@ -3,26 +3,29 @@ import { Injectable } from '@angular/core';
 import { Course } from '../models/course';
 import { Observable, take, BehaviorSubject } from 'rxjs';
 import COURSES from '../mock-courses.json';
-
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CoursesService {
   public courses$!: Observable<Course[]>;
-  courses = new BehaviorSubject(COURSES.coursesArray);
+  private courses = new BehaviorSubject<Course[]>([]);
 
   constructor(private http: HttpClient) {
     this.courses$ = this.courses.asObservable();
+    this.fetchCourses().subscribe( course => {
+      this.courses.next(course);
+    });
    }
 
   public fetchCourses(){
-    return this.courses$;
+    return this.http.get<Course[]>(`${environment.baseURL}course`);
   }
 
   addCourse(result: Omit<Course, 'id'> ){
     this.courses.pipe(take(1)).subscribe( (courses) => {
-      const lastId = courses[courses.length -1]?.id;
+      const lastId = parseInt(`${courses[courses.length -1]?.id}`);
       const newCourse = {id: lastId+1, name: result.name, hours: result.hours, lessons: result.lessons, professor: result.professor };
       console.log(newCourse)
       this.courses.next([...courses, newCourse ])
