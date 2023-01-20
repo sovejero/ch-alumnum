@@ -6,23 +6,28 @@ const routes: Routes = [
   {
     path: 'users',
     loadChildren: () => import('./users/users.module').then((module) => module.UsersModule),
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
+    title: "Users"
   },
   {
     path: 'students',
-    loadChildren: () => import('./students/students.module').then((module) => module.StudentsModule)
+    loadChildren: () => import('./students/students.module').then((module) => module.StudentsModule),
+    title: "Students"
   },
   {
     path: 'courses',
-    loadChildren: () => import('./courses/courses.module').then((module) => module.CoursesModule)
+    loadChildren: () => import('./courses/courses.module').then((module) => module.CoursesModule),
+    title: "Courses"
   },
   {
     path: 'enrollments',
-    loadChildren: () => import('./enrollments/enrollments.module').then((module) => module.EnrollmentsModule)
+    loadChildren: () => import('./enrollments/enrollments.module').then((module) => module.EnrollmentsModule),
+    title: "Enrollments"
   },
   {
     path: 'login',
     loadChildren: () => import('./login/login.module').then((module) => module.LoginModule),
+    title: "Login"
   },
   { path: '',   redirectTo: '/students', pathMatch: 'full' }
 ];
