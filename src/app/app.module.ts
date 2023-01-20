@@ -12,7 +12,6 @@ import { HttpClientModule } from '@angular/common/http'
 import { StudentsModule } from './students/students.module';
 import { CoursesModule } from './courses/courses.module';
 import { EnrollmentsModule } from './enrollments/enrollments.module';
-import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -20,7 +19,6 @@ import { LoginComponent } from './login/login.component';
     AppComponent,
     ToolbarComponent,
     NavbarComponent,
-    LoginComponent,
   ],
   imports: [
     BrowserModule,
