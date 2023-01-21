@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MatSidenav } from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-navbar',
@@ -13,7 +12,8 @@ export class NavbarComponent implements OnInit {
     this.opened = !this.opened
   }
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
