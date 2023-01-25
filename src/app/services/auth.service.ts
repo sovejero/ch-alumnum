@@ -1,24 +1,26 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { User } from '../models/user';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  public currentUser$!: Observable<User | null>
-  private currentUser = new BehaviorSubject<User | null>(null);
+  public currentUser$!: Observable<any>
+  private currentUser = new BehaviorSubject<any | null>(null);
 
   constructor() {
     this.currentUser$ = this.currentUser.asObservable();
    }
 
-  setCurrentUser(currentUser: User): void {
-    this.currentUser.next(currentUser);
+  setCurrentUser(currentUser: any): void {
+    if (currentUser?.email === 'test@test') {
+      this.currentUser.next(currentUser);
+      localStorage.setItem("token", "token")
+    }
   }
 
   public userIsLoggedIn(): boolean{
-    return localStorage.getItem('token') ? true : false;
+    return !!localStorage.getItem('token');
   }
 }

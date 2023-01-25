@@ -10,30 +10,22 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  public loginForm!: FormGroup;
-  private testUser = {
-    id: 1,
-    email: 'example@example',
-    password: 'test',
-    name: 'TestUser',
-    address: 'TestAddress',
-    phone: '12345',
-    profile: 'TestProfile'
-  };
+  loginForm = new FormGroup({
+      email: new FormControl('', [Validators.required, Validators.email]),
+      password: new FormControl('', [Validators.required]),
+  })
 
   constructor(
     private authService: AuthService,
     private router: Router
   ) {}
 
-  ngOnInit(): void {
-    this.loginForm = new FormGroup({
-      email: new FormControl('', [Validators.required, Validators.email]),
-      password: new FormControl('', [Validators.required]),
-    });
-  }
-  public onSubmit(): void {
-    this.authService.setCurrentUser(this.testUser)
-  }
+  ngOnInit(): void {}
 
+  public onSubmit(): void {
+    this.authService.setCurrentUser(this.loginForm.value)
+    if (this.authService.userIsLoggedIn()) {
+      this.router.navigate(['/students'])
+    }
+  }
 }
