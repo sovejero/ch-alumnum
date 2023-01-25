@@ -10,21 +10,28 @@ const routes: Routes = [
   },
   {
     path: 'students',
-    loadChildren: () => import('./students/students.module').then((module) => module.StudentsModule)
+    loadChildren: () => import('./students/students.module').then((module) => module.StudentsModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'courses',
-    loadChildren: () => import('./courses/courses.module').then((module) => module.CoursesModule)
+    loadChildren: () => import('./courses/courses.module').then((module) => module.CoursesModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'enrollments',
-    loadChildren: () => import('./enrollments/enrollments.module').then((module) => module.EnrollmentsModule)
+    loadChildren: () => import('./enrollments/enrollments.module').then((module) => module.EnrollmentsModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'login',
     loadChildren: () => import('./login/login.module').then((module) => module.LoginModule),
   },
-  { path: '',   redirectTo: '/students', pathMatch: 'full' }
+  { 
+    path: '',
+    redirectTo: '/students',
+    pathMatch: 'full'
+  }
 ];
 
 @NgModule({
