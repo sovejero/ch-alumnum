@@ -13,23 +13,30 @@ const routes: Routes = [
     path: 'students',
     loadChildren: () => import('./students/students.module').then((module) => module.StudentsModule),
     title: "Students"
+    canActivate: [AuthGuard]
   },
   {
     path: 'courses',
     loadChildren: () => import('./courses/courses.module').then((module) => module.CoursesModule),
     title: "Courses"
+    canActivate: [AuthGuard]
   },
   {
     path: 'enrollments',
     loadChildren: () => import('./enrollments/enrollments.module').then((module) => module.EnrollmentsModule),
     title: "Enrollments"
+    canActivate: [AuthGuard]
   },
   {
     path: 'login',
     loadChildren: () => import('./login/login.module').then((module) => module.LoginModule),
     title: "Login"
   },
-  { path: '',   redirectTo: '/students', pathMatch: 'full' }
+  { 
+    path: '',
+    redirectTo: '/students',
+    pathMatch: 'full'
+  }
 ];
 
 @NgModule({
