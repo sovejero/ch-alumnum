@@ -12,19 +12,19 @@ const routes: Routes = [
   {
     path: 'students',
     loadChildren: () => import('./students/students.module').then((module) => module.StudentsModule),
-    title: "Students"
+    title: "Students",
     canActivate: [AuthGuard]
   },
   {
     path: 'courses',
     loadChildren: () => import('./courses/courses.module').then((module) => module.CoursesModule),
-    title: "Courses"
+    title: "Courses",
     canActivate: [AuthGuard]
   },
   {
     path: 'enrollments',
     loadChildren: () => import('./enrollments/enrollments.module').then((module) => module.EnrollmentsModule),
-    title: "Enrollments"
+    title: "Enrollments",
     canActivate: [AuthGuard]
   },
   {
